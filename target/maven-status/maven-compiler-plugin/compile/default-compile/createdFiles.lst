@@ -1,0 +1,7 @@
+com\mycompany\frizerski\util\HibernateUtil.class
+com\mycompany\frizerski\model\Entitet.class
+com\mycompany\frizerski\Start.class
+com\mycompany\frizerski\model\Klijent.class
+com\mycompany\frizerski\model\Usluga.class
+com\mycompany\frizerski\model\Termin.class
+com\mycompany\frizerski\model\Djelatnik.class
