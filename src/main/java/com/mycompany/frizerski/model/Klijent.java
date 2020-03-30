@@ -62,6 +62,11 @@ public class Klijent extends Entitet{
     public void setAdresa(String adresa) {
         this.adresa = adresa;
     }
+
+    @Override
+    public String toString() {
+        return getIme()+" "+getPrezime();
+    }
     
     
 }

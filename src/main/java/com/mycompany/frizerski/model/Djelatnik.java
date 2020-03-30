@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 
 /**
  *
- * @author Korisnik
+ * @author Korisnik 
  */
 @Entity
 public class Djelatnik extends Entitet{
@@ -27,7 +27,16 @@ public class Djelatnik extends Entitet{
     private String adresa;
     
     private String iban;
+    
+    private String lozinka;
 
+    public String getLozinka() {
+        return lozinka;
+    }
+
+    public void setLozinka(String lozinka) {
+        this.lozinka = lozinka;
+    }
     public String getIme() {
         return ime;
     }
@@ -75,6 +84,12 @@ public class Djelatnik extends Entitet{
     public void setIban(String iban) {
         this.iban = iban;
     }
+
+    @Override
+    public String toString() {
+        return getIme()+" "+getPrezime();
+    }
+    
     
     
     

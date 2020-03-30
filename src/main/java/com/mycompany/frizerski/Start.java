@@ -6,6 +6,8 @@
 package com.mycompany.frizerski;
 
 
+import com.mycompany.frizerski.util.Pomocno;
+import com.mycompany.frizerski.view.SplashScreen;
 import com.mycompany.javaedu21.util.HibernateUtil;
 import org.hibernate.Session;
 /**
@@ -15,19 +17,9 @@ import org.hibernate.Session;
 public class Start {
     public Start(){
        
-        HibernateUtil.getSessionFactory().openSession();
-        /*
-        Osoba o = new Osoba();
-        o.setIme("Pero");
-        o.setPrezime("čšćđžČŠĆĐŽ");
+      //  Pomocno.pocetniInsert();
+       new SplashScreen().setVisible(true);
         
-        Session s = HibernateUtil.getSessionFactory().openSession();
-        s.beginTransaction();
-        s.save(o);
-        s.getTransaction().commit();
-        s.close();
-        HibernateUtil.shutdown();
-        */
         
     }
     
