@@ -1,10 +1,12 @@
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\model\Djelatnik.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\util\HibernateUtil.java
+C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\view\ViewUsluga.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\view\Autorizacija.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\view\ViewDjelatnik.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\model\Klijent.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\controller\ObradaTermin.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\controller\ObradaDjelatnik.java
+C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\view\ViewTermin.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\controller\ObradaKlijent.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\model\Termin.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\Start.java
@@ -14,5 +16,6 @@ C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompa
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\model\Entitet.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\controller\Obrada.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\util\FrizerskiException.java
+C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\controller\ObradaUsluga.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\model\Usluga.java
 C:\Users\Korisnik\Documents\NetBeansProjects\frizerski\src\main\java\com\mycompany\frizerski\view\Izbornik.java

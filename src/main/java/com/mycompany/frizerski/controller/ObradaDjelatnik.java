@@ -46,7 +46,10 @@ public class ObradaDjelatnik extends Obrada<Djelatnik> {
 
     @Override
     protected void kontrolaDelete() throws FrizerskiException {
-        
+        if (entitet.getTermini().size()>0
+         ) {
+            throw  new FrizerskiException("Ne mogu obrisati jer radi termin");
+        }
     }
 
     

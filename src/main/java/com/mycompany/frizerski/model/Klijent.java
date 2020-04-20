@@ -4,24 +4,39 @@
  * and open the template in the editor.
  */
 package com.mycompany.frizerski.model;
+
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Korisnik
  */
 @Entity
-public class Klijent extends Entitet{
-    
+public class Klijent extends Entitet {
+
     private String ime;
-    
+
     private String prezime;
-    
+
     private String brojtelefona;
-    
+
     private String email;
-    
+
     private String adresa;
+
+    @OneToMany(mappedBy = "klijent")
+    private List<Termin> termini = new ArrayList<>();
+
+    public List<Termin> getTermini() {
+        return termini;
+    }
+
+    public void setTermini(List<Termin> termini) {
+        this.termini = termini;
+    }
 
     public String getIme() {
         return ime;
@@ -65,8 +80,7 @@ public class Klijent extends Entitet{
 
     @Override
     public String toString() {
-        return getIme()+" "+getPrezime();
+        return getIme() + " " + getPrezime();
     }
-    
-    
+
 }

@@ -5,8 +5,12 @@
  */
 package com.mycompany.frizerski.model;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -16,9 +20,10 @@ import javax.persistence.Entity;
 public class Usluga extends Entitet{
     
     private String naziv;
-    private Integer cijena;
-    private Date trajanje;
-
+    
+    private BigDecimal cijena;
+    private Integer trajanje;
+    
     public String getNaziv() {
         return naziv;
     }
@@ -27,22 +32,25 @@ public class Usluga extends Entitet{
         this.naziv = naziv;
     }
 
-    public Integer getCijena() {
+    public BigDecimal getCijena() {
         return cijena;
     }
 
-    public void setCijena(Integer cijena) {
+    public void setCijena(BigDecimal cijena) {
         this.cijena = cijena;
     }
 
-    public Date getTrajanje() {
+    public Integer getTrajanje() {
         return trajanje;
     }
 
-    public void setTrajanje(Date trajanje) {
+    public void setTrajanje(Integer trajanje) {
         this.trajanje = trajanje;
     }
-    
-    
-     
+
+    @Override
+    public String toString() {
+        return naziv;
+    }
+ 
 }

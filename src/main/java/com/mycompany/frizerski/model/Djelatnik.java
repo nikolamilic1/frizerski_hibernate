@@ -5,30 +5,42 @@
  */
 package com.mycompany.frizerski.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  *
- * @author Korisnik 
+ * @author Korisnik
  */
 @Entity
-public class Djelatnik extends Entitet{
-    
-    
-    
+public class Djelatnik extends Entitet {
+
     private String ime;
-    
+
     private String prezime;
-    
+
     private String brojtelefona;
-    
+
     private String email;
-    
+
     private String adresa;
-    
+
     private String iban;
-    
+
     private String lozinka;
+
+    @OneToMany(mappedBy = "djelatnik")
+    private List<Termin> termini = new ArrayList<>();
+
+    public List<Termin> getTermini() {
+        return termini;
+    }
+
+    public void setTermini(List<Termin> termini) {
+        this.termini = termini;
+    }
 
     public String getLozinka() {
         return lozinka;
@@ -37,6 +49,7 @@ public class Djelatnik extends Entitet{
     public void setLozinka(String lozinka) {
         this.lozinka = lozinka;
     }
+
     public String getIme() {
         return ime;
     }
@@ -87,10 +100,7 @@ public class Djelatnik extends Entitet{
 
     @Override
     public String toString() {
-        return getIme()+" "+getPrezime();
+        return getIme() + " " + getPrezime();
     }
-    
-    
-    
-    
+
 }

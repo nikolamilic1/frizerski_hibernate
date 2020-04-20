@@ -5,7 +5,6 @@
  */
 package com.mycompany.frizerski.controller;
 
-
 import com.mycompany.frizerski.model.Klijent;
 import com.mycompany.frizerski.util.FrizerskiException;
 import java.util.List;
@@ -14,51 +13,50 @@ import java.util.List;
  *
  * @author Korisnik
  */
-public class ObradaKlijent extends Obrada<Klijent>{
+public class ObradaKlijent extends Obrada<Klijent> {
+
     public ObradaKlijent(Klijent klijent) {
         super(klijent);
-        
+
     }
+
     public ObradaKlijent() {
         super();
     }
-    
+
     @Override
     public List<Klijent> getPodaci() {
         return session.createQuery("from Klijent").list();
-        
+
     }
-    
+
     @Override
-    protected  void kontrolaCreate() throws  FrizerskiException {
+    protected void kontrolaCreate() throws FrizerskiException {
         kontrolaIme();
-    }    
-    
-    @Override
-    protected  void kontrolaUpdate() throws FrizerskiException {
-        
     }
-    
+
     @Override
-    protected void kontrolaDelete() throws FrizerskiException{
-        
+    protected void kontrolaUpdate() throws FrizerskiException {
+
     }
-    
-    
+
+    @Override
+    protected void kontrolaDelete() throws FrizerskiException {
+        if (entitet.getTermini().size() > 0) {
+            throw new FrizerskiException("Ne mogu obrisati jer ima zakazan termin");
+        }
+
+    }
+
     private void kontrolaIme() throws FrizerskiException {
-        if(entitet.getIme().length()>50) {
+        if (entitet.getIme().length() > 50) {
             throw new FrizerskiException(("Ime mora biti kraće od 50 znakova"));
         }
     }
-    
+
     @Override
     public void nakonSpremanja() throws FrizerskiException {
-        
-    }
-    
-    
-    
-    
-    
-}
 
+    }
+
+}

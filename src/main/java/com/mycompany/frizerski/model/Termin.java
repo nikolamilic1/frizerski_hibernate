@@ -8,30 +8,34 @@ package com.mycompany.frizerski.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import org.hibernate.action.internal.OrphanRemovalAction;
+import org.hibernate.annotations.Cascade;
 
 /**
  *
  * @author Korisnik
  */
-@Entity(name = "termin")
-public class Termin extends Entitet{
-         
-    
+@Entity
+public class Termin extends Entitet {
+
     @ManyToOne
     private Djelatnik djelatnik;
-    
+
     @ManyToOne
     private Klijent klijent;
-           
-    private Date vrijeme;
-    
-    private Boolean status;
 
-    @ManyToMany
+    private Date vrijeme;
+
+    private String status;
+    
+    @ManyToMany(cascade = CascadeType.REFRESH)
     @JoinTable(name = "stavka")
     private List<Usluga> usluge = new ArrayList<>();
 
@@ -59,11 +63,11 @@ public class Termin extends Entitet{
         this.vrijeme = vrijeme;
     }
 
-    public Boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -75,5 +79,9 @@ public class Termin extends Entitet{
         this.usluge = usluge;
     }
 
-    
+    @Override
+    public String toString() {
+        return getKlijent() + " radi " + getDjelatnik();
+    }
+
 }
