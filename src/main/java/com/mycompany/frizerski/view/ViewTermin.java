@@ -39,6 +39,7 @@ public class ViewTermin extends javax.swing.JFrame {
         initComponents();
         obrada = new ObradaTermin();
         obradaUsluga = new ObradaUsluga();
+        postInitComponents();
 
         ucitajKlijente();
         ucitajDjelatnike();
@@ -48,6 +49,11 @@ public class ViewTermin extends javax.swing.JFrame {
         DatePickerSettings dps = new DatePickerSettings(new Locale("hr", "HR"));
         dps.setFormatForDatesCommonEra("dd.MM.yyyy");
         dpVrijeme.setSettings(dps);
+    }
+
+    private void postInitComponents() {
+        setTitle("Termini - " + Pomocno.LOGIRAN.getPrezime());
+        ucitaj();
     }
 
     private void ucitajDjelatnike() {
@@ -330,7 +336,7 @@ public class ViewTermin extends javax.swing.JFrame {
 
     private void btnDodajNoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajNoviActionPerformed
         try {
-
+            obrada.setEntitet(new Termin());
             ucitajVrijednosti();
             obrada.create();
             ucitaj();
@@ -342,6 +348,7 @@ public class ViewTermin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDodajNoviActionPerformed
 
     private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+
         if (obrada.getEntitet() == null) {
             JOptionPane.showMessageDialog(null, "Prvo odaberite stavku");
             return;

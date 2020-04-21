@@ -18,9 +18,8 @@ import javax.swing.JOptionPane;
  */
 public class ViewKlijent extends javax.swing.JFrame {
 
-    
-    
     private final ObradaKlijent obrada;
+
     /**
      * Creates new form ViewKlijent
      */
@@ -29,42 +28,37 @@ public class ViewKlijent extends javax.swing.JFrame {
         obrada = new ObradaKlijent();
         postInitComponents();
     }
-private void postInitComponents() {
-    setTitle("Klijenti - "+ Pomocno.LOGIRAN.getPrezime());
-    ucitaj();
-}
 
+    private void postInitComponents() {
+        setTitle("Klijenti - " + Pomocno.LOGIRAN.getPrezime());
+        ucitaj();
+    }
 
 //  Pomocno.LOGIRAN2.getPrezime()
+    private void ucitaj() {
+        DefaultListModel<Klijent> m = new DefaultListModel<>();
+        obrada.getPodaci().forEach(s -> m.addElement(s));
+        lstPodaci.setModel(m);
 
-private void ucitaj() {
-    DefaultListModel<Klijent> m = new DefaultListModel<>();
-       obrada.getPodaci().forEach(s -> m.addElement(s));
-    lstPodaci.setModel(m);
-    
-}
+    }
 
+    private void ucitajVrijednosti() {
+        obrada.getEntitet().setIme(txtIme.getText());
+        obrada.getEntitet().setPrezime(txtPrezime.getText());
+        obrada.getEntitet().setBrojtelefona(txtBrojtelefona.getText());
+        obrada.getEntitet().setEmail(txtEmail.getText());
+        obrada.getEntitet().setAdresa(txtAdresa.getText());
 
+    }
 
-private void ucitajVrijednosti() {
-    obrada.getEntitet().setIme(txtIme.getText());
-    obrada.getEntitet().setPrezime(txtPrezime.getText());
-    obrada.getEntitet().setBrojtelefona(txtBrojtelefona.getText());
-    obrada.getEntitet().setEmail(txtEmail.getText());
-    obrada.getEntitet().setAdresa(txtAdresa.getText());
-    
-}
+    private void postaviVrijednosti() {
 
-
-private void postaviVrijednosti() {
-    
-    txtIme.setText(obrada.getEntitet().getIme());
-    txtPrezime.setText(obrada.getEntitet().getPrezime());
-    txtBrojtelefona.setText(obrada.getEntitet().getBrojtelefona());
-    txtEmail.setText(obrada.getEntitet().getEmail());
-    txtAdresa.setText(obrada.getEntitet().getAdresa());
-}
-
+        txtIme.setText(obrada.getEntitet().getIme());
+        txtPrezime.setText(obrada.getEntitet().getPrezime());
+        txtBrojtelefona.setText(obrada.getEntitet().getBrojtelefona());
+        txtEmail.setText(obrada.getEntitet().getEmail());
+        txtAdresa.setText(obrada.getEntitet().getAdresa());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,18 +201,17 @@ private void postaviVrijednosti() {
             ucitaj();
         } catch (FrizerskiException ex) {
             JOptionPane.showMessageDialog(null, ex.getPoruka());
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnDodajNovogActionPerformed
 
     private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
-        if(obrada.getEntitet() == null) {
+        if (obrada.getEntitet() == null) {
             JOptionPane.showMessageDialog(null, "Prvo odaberite klijenta");
             return;
         }
-        
+
         ucitajVrijednosti();
         try {
             obrada.update();
@@ -229,11 +222,11 @@ private void postaviVrijednosti() {
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
-        if(obrada.getEntitet() == null) {
+        if (obrada.getEntitet() == null) {
             JOptionPane.showMessageDialog(null, "Prvo odaberite klijenta");
             return;
         }
-        
+
         try {
             obrada.delete();
             ucitaj();
@@ -256,10 +249,6 @@ private void postaviVrijednosti() {
     /**
      * @param args the command line arguments
      */
-    
-    
-   
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodajNovog;

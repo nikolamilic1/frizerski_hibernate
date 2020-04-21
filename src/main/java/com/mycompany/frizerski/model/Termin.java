@@ -10,13 +10,9 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import org.hibernate.action.internal.OrphanRemovalAction;
-import org.hibernate.annotations.Cascade;
 
 /**
  *
@@ -34,9 +30,8 @@ public class Termin extends Entitet {
     private Date vrijeme;
 
     private String status;
-    
-    @ManyToMany(cascade = CascadeType.REFRESH)
-    @JoinTable(name = "stavka")
+
+    @ManyToMany
     private List<Usluga> usluge = new ArrayList<>();
 
     public Djelatnik getDjelatnik() {
